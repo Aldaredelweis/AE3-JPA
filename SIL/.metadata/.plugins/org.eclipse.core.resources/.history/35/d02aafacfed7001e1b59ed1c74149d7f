@@ -1,0 +1,5 @@
+package modelo.entidad.nuevo;
+
+public class Direccion {
+
+}
