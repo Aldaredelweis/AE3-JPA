@@ -1,0 +1,26 @@
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement
+public class Articulo {
+    private String nombre;
+    private double precio;
+
+    // Getters y setters con anotaciones JAXB
+    @XmlElement
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    @XmlElement
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+}

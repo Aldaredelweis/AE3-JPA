@@ -1,0 +1,40 @@
+package main;
+import javax.xml.bind.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            // Crear JAXBContext
+            JAXBContext context = JAXBContext.newInstance(Articulo.class);
+
+            // Crear Marshaller
+            Marshaller marshaller = context.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+            // Crear lista de artículos
+            List<Articulo> articulos = new ArrayList<>();
+            Articulo articulo1 = new Articulo();
+            articulo1.setNombre("Articulo 1");
+            articulo1.setPrecio(100.0);
+            articulos.add(articulo1);
+
+            Articulo articulo2 = new Articulo();
+            articulo2.setNombre("Articulo 2");
+            articulo2.setPrecio(200.0);
+            articulos.add(articulo2);
+
+            Articulo articulo3 = new Articulo();
+            articulo3.setNombre("Articulo 3");
+            articulo3.setPrecio(300.0);
+            articulos.add(articulo3);
+
+            // Serializar lista a XML
+            for (Articulo articulo : articulos) {
+                marshaller.marshal(articulo, System.out);
+            }
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+    }
+}

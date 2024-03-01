@@ -1,0 +1,16 @@
+package modeloentidad;
+
+@Entity
+public class Autor {
+ @Id
+ @GeneratedValue(strategy = GenerationType.AUTO)
+ private Long id;
+ private String nombre;
+ private String apellidos;
+ private Date fechaNacimiento;
+
+ @OneToMany(mappedBy = "autor")
+ private List<Libro> libros;
+
+ // Getters y setters
+}
